@@ -1,9 +1,19 @@
 <template>
 
   <div id="app">
-    
+
     <!-- Here the header component -->
-    <PageHeader/>
+    <header>
+      <PageHeader/>
+    </header>
+
+    <!-- Here the main section -->
+    <main>
+      <!-- Here the albums list component -->
+      <AlbumsList/>
+
+    </main>
+
     
   </div>
 
@@ -12,11 +22,13 @@
 <script>
 
   import PageHeader from './components/PageHeader.vue';
+  import AlbumsList from './components/AlbumsList.vue';
 
   export default {
     name: 'App',
     components: {
-      PageHeader
+      PageHeader,
+      AlbumsList
     }
   }
 
