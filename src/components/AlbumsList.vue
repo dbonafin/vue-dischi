@@ -2,41 +2,9 @@
 
     <div class="container">
         <div class="row">
-           
-           <div class="column">
-                <div class="album-card">
-                    <p>lorem impsppsspps</p>
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
 
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
-
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
-
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
-
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
-
-                </div>            
-           </div>
-           <div class="column">
-                <div class="album-card">
-
-                </div>            
+           <div v-for="(album,index) in albumsArray" :key="index" class="column">
+                <AlbumCard/>          
            </div>
 
         </div>
@@ -46,8 +14,30 @@
 
 <script>
 
+    import axios from "axios";
+    import AlbumCard from './AlbumCard.vue';
+    
     export default {
-        name: "AlbumsList"
+        name: "AlbumsList",
+        components: { AlbumCard },
+        data() {
+            return {
+                url: "https://flynn.boolean.careers/exercises/api/array/music",
+                albumsArray: [],
+            }
+        },
+        methods: {
+           getAlbums() {
+                axios.get(this.url)
+                .then((response) => {
+                    this.albumsArray = response.data.response;
+                    console.log(this.albumsArray);
+                });
+           }
+        },
+        mounted() {
+            this.getAlbums()
+        },
     }
 
 </script>

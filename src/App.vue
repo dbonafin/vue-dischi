@@ -26,10 +26,7 @@
 
   export default {
     name: 'App',
-    components: {
-      PageHeader,
-      AlbumsList
-    }
+    components: { PageHeader, AlbumsList }
   }
 
 </script>
