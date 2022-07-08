@@ -1,12 +1,21 @@
 <template>
 
     <div class="container">
-        <div class="row">
+        <!-- If loadingComplete is true - show all the albums -->
+        <div v-if="loadingComplete" class="row">
 
+            <!-- For every object in the array print a card with all the infos -->
            <div v-for="(album,index) in albumsArray" :key="index" class="column">
-                <AlbumCard/>          
+                <AlbumCard :albumDetails="album" />          
            </div>
 
+        </div>
+
+        <!-- If loadingComplete is false - show the loader -->
+        <div v-else>
+            <div class="loader">
+                loading zio
+            </div>
         </div>
     </div>
 
@@ -24,6 +33,7 @@
             return {
                 url: "https://flynn.boolean.careers/exercises/api/array/music",
                 albumsArray: [],
+                loadingComplete: false
             }
         },
         methods: {
@@ -31,7 +41,9 @@
                 axios.get(this.url)
                 .then((response) => {
                     this.albumsArray = response.data.response;
-                    console.log(this.albumsArray);
+
+                    // When the array got all the elements from the api, change the variable loadingComplete
+                    this.loadingComplete = true;
                 });
            }
         },
@@ -52,8 +64,8 @@
         display: flex;
         align-items: center;
         .row {
-            width: 1000px;
-            height: 550px;
+            width: 1100px;
+            height: 600px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -62,8 +74,6 @@
                 height: calc(100% / 2 - 20px);
                 margin: 10px 20px;
                 background-color: $bg-secondary-color;
-                // test 
-                color: white;
             }
         }
     }

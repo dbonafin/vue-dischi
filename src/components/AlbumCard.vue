@@ -2,15 +2,15 @@
 
     <div class="album-card">
         <div class="album-image">
-            immagine
+            <img :src="albumDetails.poster" :alt="albumDetails.title">
         </div>
 
         <div class="album-infos">
 
-            <h3>nome album</h3>
+            <h3>{{albumDetails.title}}</h3>
 
-            <h4>artista</h4>
-            <h4>anno release</h4>
+            <h4>{{albumDetails.author}}</h4>
+            <h4>{{albumDetails.year}}</h4>
 
         </div>
     </div>
@@ -21,6 +21,7 @@
 
     export default {
         name: "AlbumCard",
+        props: {albumDetails: Object}
     }
 
 </script>
@@ -37,12 +38,13 @@
             width: 110px;
             margin: 0 auto;
             height: 110px;
-            background-color: lightcoral;
         }
         .album-infos {
             margin-top: 20px;
             text-align-last: center;
             h3 {
+                text-align: center;
+                text-transform: uppercase;
                 margin-bottom: 20px;
                 color: $album-name-color;
             }
