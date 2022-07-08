@@ -1,12 +1,15 @@
 <template>
 
-    <div class="reset-test">
-        <h1>Reset effettuato</h1>
-    </div>
+    <header>
+        <div class="logo-div">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1280px-Spotify_logo_without_text.svg.png" alt="spotify logo">
+        </div>
+    </header>
 
 </template>
 
 <script>
+
 
     export default {
         name: "PageHeader"
@@ -16,11 +19,15 @@
 
 <style lang="scss">
 
-    .reset-test {
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        text-align: center;
-        color: blueviolet;
-        margin-top: 60px;
+    @import "../style/common.scss";
+    @import "../style/brand-colors.scss";
+
+    header {
+        background-color: $bg-secondary-color;
+        .logo-div {
+            padding: 10px 20px;
+            width: 80px;
+        }
     }
     
 </style>

@@ -1,0 +1,22 @@
+// Font family
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+// Brand colors
+@import "../style/brand-colors.scss";
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Common
+body {
+    background-color: $bg-primary-color;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
