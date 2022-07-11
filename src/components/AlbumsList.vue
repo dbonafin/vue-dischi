@@ -5,7 +5,7 @@
         <div v-if="loadingComplete" class="row">
 
             <!-- For every object in the array print a card with all the infos -->
-           <div v-for="(album,index) in albumsArray" :key="index" class="column">
+           <div v-for="(album,index) in filteredAlbums" :key="index" class="column">
                 <AlbumCard :albumDetails="album" />          
            </div>
 
@@ -53,6 +53,16 @@
         mounted() {
             this.getAlbums()
         },
+        computed: {
+            filteredAlbums() {
+                if (this.genreSelection = '') {
+                    return this.albumsArray;
+                }
+                // return this.albumsArray.filter((album)=> {
+                //     return this.album.name.includes(this.genreSelection);
+                // })
+            }
+        }
     }
 
 </script>

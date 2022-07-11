@@ -4,7 +4,7 @@
 
     <!-- Here the header component -->
     <header>
-      <PageHeader/>
+      <PageHeader @selectGenre="filteredAlbums"/>
     </header>
 
     <!-- Here the main section -->
@@ -26,7 +26,12 @@
 
   export default {
     name: 'App',
-    components: { PageHeader, AlbumsList }
+    components: { PageHeader, AlbumsList },
+    props: {filteredAlbums},
+    methods: {
+      // filteredAlbums(genre){
+      // }
+    },
   }
 
 </script>

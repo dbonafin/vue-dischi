@@ -8,7 +8,7 @@
         <div class="genre-nav">
             <h4>Select the genre that you want to listen</h4>
 
-            <select v-model="selectText" :change="selectGenre()" id="genre-selection">
+            <select v-model="selectText" @change="$emit('selectGenre', selectText)" id="genre-selection">
                 <option value="all">All</option>
                 <option value="rock">Rock</option>
                 <option value="pop">Pop</option>
@@ -28,12 +28,7 @@
             return {
                 selectText: 'all'
             }
-        },
-        methods: {
-            selectGenre() {
-                console.log(this.selectText);
-            }
-        },
+        }
     }
 
 </script>

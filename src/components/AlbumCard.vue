@@ -22,8 +22,7 @@
 
     export default {
         name: "AlbumCard",
-        props: {albumDetails: Object},
-        
+        props: {albumDetails: Object},      
     }
 
 </script>
