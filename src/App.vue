@@ -4,13 +4,13 @@
 
     <!-- Here the header component -->
     <header>
-      <PageHeader @selectGenre="filteredAlbums"/>
+      <PageHeader @selectGenre="setGenre"/>
     </header>
 
     <!-- Here the main section -->
     <main>
       <!-- Here the albums list component -->
-      <AlbumsList/>
+      <AlbumsList :genreToShow="genreToShow"/>
 
     </main>
 
@@ -27,11 +27,16 @@
   export default {
     name: 'App',
     components: { PageHeader, AlbumsList },
-    props: {filteredAlbums},
-    methods: {
-      // filteredAlbums(genre){
-      // }
+    data() {
+      return {
+        genreToShow: '',
+      }
     },
+    methods: {
+      setGenre(genre){
+        this.genreToShow = genre;
+      }
+    }
   }
 
 </script>

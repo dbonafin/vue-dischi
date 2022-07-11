@@ -5,8 +5,8 @@
         <div v-if="loadingComplete" class="row">
 
             <!-- For every object in the array print a card with all the infos -->
-           <div v-for="(album,index) in filteredAlbums" :key="index" class="column">
-                <AlbumCard :albumDetails="album" />          
+           <div v-for="(album,index) in albumsArray" :key="index" class="column">
+                <AlbumCard :albumDetails="album"/>         
            </div>
 
         </div>
@@ -30,12 +30,15 @@
     export default {
         name: "AlbumsList",
         components: { AlbumCard },
+        props: {
+            genreToShow: String
+        },
         data() {
             return {
                 url: "https://flynn.boolean.careers/exercises/api/array/music",
                 albumsArray: [],
                 loadingComplete: false,
-                genreSelection: ''
+                selectionGenre: ''
             }
         },
         methods: {
@@ -54,13 +57,15 @@
             this.getAlbums()
         },
         computed: {
-            filteredAlbums() {
-                if (this.genreSelection = '') {
-                    return this.albumsArray;
+             filteredAlbums() {
+                if (this.genreToShow = '') {
+                   return this.albumsArray;
                 }
-                // return this.albumsArray.filter((album)=> {
-                //     return this.album.name.includes(this.genreSelection);
-                // })
+                return this.albumsArray.filter((album)=> {
+                    console.log(album)
+                   return this.albumsArray.includes(this.genreToShow);
+                })
+               
             }
         }
     }
