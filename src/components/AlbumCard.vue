@@ -11,7 +11,7 @@
 
             <h4>{{albumDetails.author}}</h4>
             <h4>{{albumDetails.year}}</h4>
-                   <h4>{{albumDetails.genre}}</h4>
+            <h4>{{albumDetails.genre}}</h4>
 
         </div>
     </div>
@@ -22,7 +22,8 @@
 
     export default {
         name: "AlbumCard",
-        props: {albumDetails: Object}
+        props: {albumDetails: Object},
+        
     }
 
 </script>
@@ -54,7 +55,5 @@
             }
         }
     }
-
-  
     
 </style>

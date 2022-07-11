@@ -34,7 +34,8 @@
             return {
                 url: "https://flynn.boolean.careers/exercises/api/array/music",
                 albumsArray: [],
-                loadingComplete: false
+                loadingComplete: false,
+                genreSelection: ''
             }
         },
         methods: {

@@ -8,7 +8,7 @@
         <div class="genre-nav">
             <h4>Select the genre that you want to listen</h4>
 
-            <select id="genre-selection">
+            <select v-model="selectText" :change="selectGenre()" id="genre-selection">
                 <option value="all">All</option>
                 <option value="rock">Rock</option>
                 <option value="pop">Pop</option>
@@ -22,9 +22,18 @@
 
 <script>
 
-
     export default {
-        name: "PageHeader"
+        name: "PageHeader",
+        data() {
+            return {
+                selectText: 'all'
+            }
+        },
+        methods: {
+            selectGenre() {
+                console.log(this.selectText);
+            }
+        },
     }
 
 </script>
@@ -53,6 +62,7 @@
             margin: 0 10px;
             padding: 2px 20px;
             font-weight: 700;
+            text-align: center;
             border-radius: 5px;
             background-color: #19D861;
         }
