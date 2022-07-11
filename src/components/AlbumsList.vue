@@ -85,7 +85,7 @@
             p {
                 text-transform: uppercase;
                 font-size: 40px;
-                color: #19D861;
+                color: $green-elements;
                 text-align: center;
             }
         }

@@ -11,6 +11,7 @@
 
             <h4>{{albumDetails.author}}</h4>
             <h4>{{albumDetails.year}}</h4>
+                   <h4>{{albumDetails.genre}}</h4>
 
         </div>
     </div>
