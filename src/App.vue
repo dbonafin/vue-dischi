@@ -30,6 +30,7 @@
     data() {
       return {
         genreToShow: '',
+        albumGenres: []
       }
     },
     methods: {

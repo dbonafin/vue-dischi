@@ -9,6 +9,7 @@
             <h4>Select the genre that you want to listen</h4>
 
             <select v-model="selectText" @change="$emit('selectGenre', selectText)" id="genre-selection">
+                <option v-for="genre,index in albumGenres" :key="index" :value="genre">{{genre}}</option>
                 <option value="all">All</option>
                 <option value="rock">Rock</option>
                 <option value="pop">Pop</option>
@@ -28,7 +29,8 @@
             return {
                 selectText: 'all'
             }
-        }
+        },
+        props: {albumGenres: Array}
     }
 
 </script>

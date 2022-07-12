@@ -30,13 +30,12 @@
     export default {
         name: "AlbumsList",
         components: { AlbumCard },
-        props: {
-            genreToShow: String
-        },
+        props: {genreToShow: String},
         data() {
             return {
                 url: "https://flynn.boolean.careers/exercises/api/array/music",
                 albumsArray: [],
+                albumsGenres: [],
                 loadingComplete: false,
                 selectionGenre: ''
             }
@@ -48,26 +47,31 @@
                     // Fill the array with the datas inside the api
                     this.albumsArray = response.data.response;
 
+                    this.albumsArray.forEach((album) => {
+                        if (!this.albumsGenres.includes(album.genre)) {
+                            this.albumsGenres.push(album.genre)
+                        }
+                    });
+
                     // When the array got all the elements from the api, change the variable loadingComplete
                     this.loadingComplete = true;
                 });
            }
         },
+        computed: {
+            filteredAlbums () {
+                if (this.genreToShow === '') {
+                    return this.albumsArray;
+                }
+
+                return this.albumsArray.filter ((album) => {
+                   album.genre === this.genreToShow
+                });
+            }
+        },
         mounted() {
             this.getAlbums()
         },
-        computed: {
-             filteredAlbums() {
-                if (this.genreToShow = '') {
-                   return this.albumsArray;
-                }
-                return this.albumsArray.filter((album)=> {
-                    console.log(album)
-                   return this.albumsArray.includes(this.genreToShow);
-                })
-               
-            }
-        }
     }
 
 </script>
