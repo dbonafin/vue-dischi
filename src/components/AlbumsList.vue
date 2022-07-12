@@ -32,14 +32,14 @@
             }
         },
         computed: {
-            filteredAlbums () {
+            filteredAlbums() {
                 if (this.genreToShow === '') {
                     return this.albumsArray;
-                }
-
-                return this.albumsArray.filter ((element) => {
+                } else {
+                    return this.albumsArray.filter((element) => {
                     return element.genre === this.genreToShow;
-                });
+                    });
+                }
             }
         },
         mounted() {
