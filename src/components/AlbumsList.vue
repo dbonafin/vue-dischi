@@ -38,8 +38,7 @@
                 }
 
                 return this.albumsArray.filter ((element) => {
-                    element.genre === this.genreToShow;
-                    console.log(element.genre)
+                    return element.genre === this.genreToShow;
                 });
             }
         },
