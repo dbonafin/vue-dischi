@@ -4,13 +4,13 @@
 
     <!-- Here the header component -->
     <header>
-      <PageHeader @selectGenre="setGenre"/>
+      <PageHeader :albumGenres="albumGenres" @selectGenre="setGenre"/>
     </header>
 
     <!-- Here the main section -->
     <main>
       <!-- Here the albums list component -->
-      <AlbumsList :genreToShow="genreToShow"/>
+      <AlbumsList :genreToShow="genreToShow" @genresInfo="getAllGenres"/>
 
     </main>
 
@@ -36,6 +36,9 @@
     methods: {
       setGenre(genre){
         this.genreToShow = genre;
+      },
+      getAllGenres(genres) {
+        this.albumGenres = genres;
       }
     }
   }
